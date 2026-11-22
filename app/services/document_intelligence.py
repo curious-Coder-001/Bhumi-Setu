@@ -1,15 +1,23 @@
 from pathlib import Path
 import io
 import re
+import shutil
 
 import fitz
 import pytesseract
 from PIL import Image
 
-# Tesseract installation path
-pytesseract.pytesseract.tesseract_cmd = (
+# Cross-platform Tesseract configuration
+WINDOWS_TESSERACT = Path(
     r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 )
+
+if WINDOWS_TESSERACT.exists():
+    pytesseract.pytesseract.tesseract_cmd = str(WINDOWS_TESSERACT)
+else:
+    pytesseract.pytesseract.tesseract_cmd = (
+        shutil.which("tesseract") or "tesseract"
+    )
 
 
 def extract_document_text(file_path):
