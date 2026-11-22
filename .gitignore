@@ -1,0 +1,31 @@
+﻿.venv/
+__pycache__/
+*.py[cod]
+.env
+.streamlit/secrets.toml
+
+# Uploaded and private documents
+data/documents/
+data/training_documents/
+
+# Temporary OCR and review files
+data/*crop*.png
+data/jamabandi_*.png
+data/*review.csv
+
+# Temporary files
+*.sqlite-wal
+*.sqlite-shm
+search_state.json
+
+# Local test documents and screenshots
+test_jamabandi.pdf
+test_jamabandi.txt
+screenshots/
+
+
+data/raw/
+
+data/raw/
+
+data/processed/bhumi_setu - Copy.db
